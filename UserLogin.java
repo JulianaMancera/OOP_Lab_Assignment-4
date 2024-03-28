@@ -2,11 +2,11 @@ import java.util.*;
 public class UserLogin {
 
     private static final String MAIN_PASSWORD = "password";
-    private static final int MAX_LOGINP_ATTEMPTS = 3;
+    private static final int LOGIN_ATTEMPTS = 3;
     private int loginAttempts = 0;
 
     public void login(String enterPass) throws LoginException, InvalidPasswordException {
-        if (loginAttempts >= MAX_LOGINP_ATTEMPTS - 1) {
+        if (loginAttempts >= LOGIN_ATTEMPTS - 1) {
             loginAttempts++;
             throw new LoginException("You reached the maximum attempts");
         }
@@ -24,7 +24,7 @@ public class UserLogin {
         Scanner user = new Scanner(System.in);
         UserLogin login = new UserLogin();
 
-        for (int i = 0; i < MAX_LOGINP_ATTEMPTS; i++) {
+        for (int i = 0; i < LOGIN_ATTEMPTS; i++) {
             System.out.print("Enter password: ");
             String password = user.nextLine();
 
